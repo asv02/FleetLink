@@ -1,11 +1,21 @@
-import {Outlet} from 'react-router'
+import { Outlet } from "react-router";
+import NavBar from "./NavBar";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
-const Body = ()=>
+const Body = () => {
+  const Navigate = useNavigate()
+    useEffect(() => 
     {
-        return (<div>
-            <h1>Body</h1>
-            <Outlet/>
-        </div>)
-    }
+        Navigate('/vehicle/registration')
+    }, []);
+
+  return (
+    <div>
+      <NavBar />
+      <Outlet />
+    </div>
+  );
+};
 
 export default Body;

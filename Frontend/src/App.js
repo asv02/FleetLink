@@ -4,9 +4,10 @@ import Body from "../src/components/Body";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Registration from "./components/Registration";
 import BookVehicle from "./components/BookVehicle";
+import NavBar from "./components/NavBar";
 import CheckAvailability from "./components/CheckAvailability";
 import { Provider } from "react-redux";
-import Store  from "../Utils/AppStore";
+import Store from "../Utils/AppStore";
 
 const App = () => {
   return (
@@ -22,10 +23,7 @@ const App = () => {
               path="/vehicle/CheckAvailablity"
               element={<CheckAvailability />}
             ></Route>
-            <Route
-              path="/bookVehicle"
-              element={<BookVehicle />}
-            ></Route>
+            <Route path="/bookVehicle" element={<BookVehicle />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

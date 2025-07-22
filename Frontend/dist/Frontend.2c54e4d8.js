@@ -687,6 +687,8 @@ var _registration = require("./components/Registration");
 var _registrationDefault = parcelHelpers.interopDefault(_registration);
 var _bookVehicle = require("./components/BookVehicle");
 var _bookVehicleDefault = parcelHelpers.interopDefault(_bookVehicle);
+var _navBar = require("./components/NavBar");
+var _navBarDefault = parcelHelpers.interopDefault(_navBar);
 var _checkAvailability = require("./components/CheckAvailability");
 var _checkAvailabilityDefault = parcelHelpers.interopDefault(_checkAvailability);
 var _reactRedux = require("react-redux");
@@ -702,7 +704,7 @@ const App = ()=>{
                     path: "/",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 16,
+                        lineNumber: 17,
                         columnNumber: 36
                     }, void 0),
                     children: [
@@ -710,57 +712,57 @@ const App = ()=>{
                             path: "/vehicle/registration",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 19,
+                                lineNumber: 20,
                                 columnNumber: 24
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 17,
+                            lineNumber: 18,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Route), {
                             path: "/vehicle/CheckAvailablity",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _checkAvailabilityDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 23,
+                                lineNumber: 24,
                                 columnNumber: 24
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 21,
+                            lineNumber: 22,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Route), {
                             path: "/bookVehicle",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookVehicleDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 27,
-                                columnNumber: 24
+                                lineNumber: 26,
+                                columnNumber: 49
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 25,
+                            lineNumber: 26,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/App.js",
-                    lineNumber: 16,
+                    lineNumber: 17,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 14,
+            lineNumber: 15,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 13,
+        lineNumber: 14,
         columnNumber: 5
     }, undefined);
 };
@@ -768,7 +770,7 @@ _c = App;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 37,
+    lineNumber: 35,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -779,7 +781,7 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","../src/components/Body":"c4zl2","react-router":"2jawN","./components/Registration":"eE5Yg","./components/BookVehicle":"jQ8ng","./components/CheckAvailability":"qnUph","react-redux":"hbNxT","../Utils/AppStore":"lmmYD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","../src/components/Body":"c4zl2","react-router":"2jawN","./components/Registration":"eE5Yg","./components/BookVehicle":"jQ8ng","./components/NavBar":"e6v2h","./components/CheckAvailability":"qnUph","react-redux":"hbNxT","../Utils/AppStore":"lmmYD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -16190,28 +16192,40 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouter = require("react-router");
+var _navBar = require("./NavBar");
+var _navBarDefault = parcelHelpers.interopDefault(_navBar);
+var _react = require("react");
+var _s = $RefreshSig$();
 const Body = ()=>{
+    _s();
+    const Navigate = (0, _reactRouter.useNavigate)();
+    (0, _react.useEffect)(()=>{
+        Navigate('/vehicle/registration');
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Body"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navBarDefault.default), {}, void 0, false, {
                 fileName: "src/components/Body.jsx",
-                lineNumber: 6,
-                columnNumber: 13
+                lineNumber: 15,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Outlet), {}, void 0, false, {
                 fileName: "src/components/Body.jsx",
-                lineNumber: 7,
-                columnNumber: 13
+                lineNumber: 16,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.jsx",
-        lineNumber: 5,
-        columnNumber: 17
+        lineNumber: 14,
+        columnNumber: 5
     }, undefined);
 };
+_s(Body, "qiyMe5CjbyS90NXqWfBBrh1dcow=", false, function() {
+    return [
+        (0, _reactRouter.useNavigate)
+    ];
+});
 _c = Body;
 exports.default = Body;
 var _c;
@@ -16222,7 +16236,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2jawN":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","./NavBar":"e6v2h","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U"}],"2jawN":[function(require,module,exports,__globalThis) {
 /**
  * react-router v7.7.0
  *
@@ -24556,7 +24570,394 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{}],"e6v2h":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$161e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$161e.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$161e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouter = require("react-router");
+var _registration = require("./Registration");
+var _registrationDefault = parcelHelpers.interopDefault(_registration);
+var _bookVehicle = require("./BookVehicle");
+var _bookVehicleDefault = parcelHelpers.interopDefault(_bookVehicle);
+var _body = require("./Body");
+var _bodyDefault = parcelHelpers.interopDefault(_body);
+const Navbar = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "navbar bg-base-100 shadow-sm",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex-1",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
+                        to: "/",
+                        className: "btn btn-ghost text-xl",
+                        children: "FleetLink"
+                    }, void 0, false, {
+                        fileName: "src/components/NavBar.jsx",
+                        lineNumber: 12,
+                        columnNumber: 11
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/NavBar.jsx",
+                    lineNumber: 11,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex gap-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            type: "text",
+                            placeholder: "Search",
+                            className: "input input-bordered w-24 md:w-auto"
+                        }, void 0, false, {
+                            fileName: "src/components/NavBar.jsx",
+                            lineNumber: 15,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "dropdown dropdown-end",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    tabIndex: 0,
+                                    role: "button",
+                                    className: "btn btn-ghost btn-circle avatar",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "w-10 rounded-full",
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            alt: "Tailwind CSS Navbar component",
+                                            src: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                        }, void 0, false, {
+                                            fileName: "src/components/NavBar.jsx",
+                                            lineNumber: 27,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/NavBar.jsx",
+                                        lineNumber: 26,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/NavBar.jsx",
+                                    lineNumber: 21,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                    tabIndex: 0,
+                                    className: "menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
+                                                to: "/vehicle/registration",
+                                                className: "justify-between",
+                                                children: [
+                                                    "Registration",
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "badge",
+                                                        children: "New"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/NavBar.jsx",
+                                                        lineNumber: 40,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/NavBar.jsx",
+                                                lineNumber: 38,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/components/NavBar.jsx",
+                                            lineNumber: 37,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
+                                                to: "/vehicle/CheckAvailablity",
+                                                children: "BookVehicle"
+                                            }, void 0, false, {
+                                                fileName: "src/components/NavBar.jsx",
+                                                lineNumber: 44,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/components/NavBar.jsx",
+                                            lineNumber: 43,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/NavBar.jsx",
+                                    lineNumber: 33,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/NavBar.jsx",
+                            lineNumber: 20,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/NavBar.jsx",
+                    lineNumber: 14,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/NavBar.jsx",
+            lineNumber: 10,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/NavBar.jsx",
+        lineNumber: 9,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Navbar;
+exports.default = Navbar;
+var _c;
+$RefreshReg$(_c, "Navbar");
+
+  $parcel$ReactRefreshHelpers$161e.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router":"2jawN","./Registration":"eE5Yg","./BookVehicle":"jQ8ng","./Body":"c4zl2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"eE5Yg":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$8846 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$8846.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8846.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+const Registration = ()=>{
+    _s();
+    const [formData, setFormData] = (0, _react.useState)({
+        Name: "",
+        Capacity: "",
+        Tyres: ""
+    });
+    const [message, setMessage] = (0, _react.useState)("");
+    const handleChange = (e)=>{
+        setFormData((prev)=>({
+                ...prev,
+                [e.target.name]: e.target.value
+            }));
+    };
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        try {
+            const res = await fetch("http://localhost:3000/api/vehicles", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    Name: formData.Name,
+                    Capacity: parseInt(formData.Capacity),
+                    Tyres: parseInt(formData.Tyres)
+                })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setMessage(`${data.message}`);
+                setFormData({
+                    Name: "",
+                    Capacity: "",
+                    Tyres: ""
+                }); // reset formData
+            } else setMessage("Failed to register vehicle");
+        } catch (err) {
+            console.log("Error:", err);
+            setMessage("Error registering vehicle.");
+        }
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "min-h-screen flex items-center justify-center bg-base-200",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "w-full max-w-md p-8 bg-base-100 rounded-xl shadow-lg",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    className: "text-2xl font-bold mb-6 text-center text-primary",
+                    children: "Vehicle Registration"
+                }, void 0, false, {
+                    fileName: "src/components/Registration.jsx",
+                    lineNumber: 52,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    onSubmit: handleSubmit,
+                    className: "space-y-4",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "label",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        className: "label-text text-base-content",
+                                        children: "Name"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Registration.jsx",
+                                        lineNumber: 59,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Registration.jsx",
+                                    lineNumber: 58,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    name: "Name",
+                                    value: formData.Name,
+                                    onChange: handleChange,
+                                    className: "input input-bordered w-full",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/Registration.jsx",
+                                    lineNumber: 61,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Registration.jsx",
+                            lineNumber: 57,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "label",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        className: "label-text text-base-content",
+                                        children: "Capacity (kg)"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Registration.jsx",
+                                        lineNumber: 73,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Registration.jsx",
+                                    lineNumber: 72,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "number",
+                                    name: "Capacity",
+                                    value: formData.Capacity,
+                                    onChange: handleChange,
+                                    className: "input input-bordered w-full",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/Registration.jsx",
+                                    lineNumber: 77,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Registration.jsx",
+                            lineNumber: 71,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "label",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        className: "label-text text-base-content",
+                                        children: "Tyres"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Registration.jsx",
+                                        lineNumber: 89,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/Registration.jsx",
+                                    lineNumber: 88,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "number",
+                                    name: "Tyres",
+                                    value: formData.Tyres,
+                                    onChange: handleChange,
+                                    className: "input input-bordered w-full",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/Registration.jsx",
+                                    lineNumber: 91,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/Registration.jsx",
+                            lineNumber: 87,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            type: "submit",
+                            className: "btn btn-primary w-full",
+                            children: "Register"
+                        }, void 0, false, {
+                            fileName: "src/components/Registration.jsx",
+                            lineNumber: 101,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/Registration.jsx",
+                    lineNumber: 56,
+                    columnNumber: 9
+                }, undefined),
+                message && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "mt-4 alert alert-info text-sm justify-center",
+                    children: message
+                }, void 0, false, {
+                    fileName: "src/components/Registration.jsx",
+                    lineNumber: 107,
+                    columnNumber: 11
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Registration.jsx",
+            lineNumber: 51,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Registration.jsx",
+        lineNumber: 50,
+        columnNumber: 5
+    }, undefined);
+};
+_s(Registration, "qwJal9PK+hjf7Y7J6q1wQKtwIlY=");
+_c = Registration;
+exports.default = Registration;
+var _c;
+$RefreshReg$(_c, "Registration");
+
+  $parcel$ReactRefreshHelpers$8846.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -26834,231 +27235,7 @@ function $da9882e673ac146b$var$ErrorOverlay() {
     return null;
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eE5Yg":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$8846 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$8846.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$8846.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-const Registration = ()=>{
-    _s();
-    const [formData, setFormData] = (0, _react.useState)({
-        Name: "",
-        Capacity: "",
-        Tyres: ""
-    });
-    const [message, setMessage] = (0, _react.useState)("");
-    const handleChange = (e)=>{
-        setFormData((prev)=>({
-                ...prev,
-                [e.target.name]: e.target.value
-            }));
-    };
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        try {
-            const res = await fetch("http://localhost:3000/api/vehicles", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    Name: formData.Name,
-                    Capacity: parseInt(formData.Capacity),
-                    Tyres: parseInt(formData.Tyres)
-                })
-            });
-            const data = await res.json();
-            if (res.ok) {
-                setMessage(`${data.message}`);
-                setFormData({
-                    Name: "",
-                    Capacity: "",
-                    Tyres: ""
-                }); // reset formData
-            } else setMessage("Failed to register vehicle");
-        } catch (err) {
-            console.log("Error:", err);
-            setMessage("Error registering vehicle.");
-        }
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "min-h-screen flex items-center justify-center bg-base-200",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "w-full max-w-md p-8 bg-base-100 rounded-xl shadow-lg",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                    className: "text-2xl font-bold mb-6 text-center text-primary",
-                    children: "Vehicle Registration"
-                }, void 0, false, {
-                    fileName: "src/components/Registration.jsx",
-                    lineNumber: 52,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                    onSubmit: handleSubmit,
-                    className: "space-y-4",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    className: "label",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "label-text text-base-content",
-                                        children: "Name"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Registration.jsx",
-                                        lineNumber: 59,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/Registration.jsx",
-                                    lineNumber: 58,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "text",
-                                    name: "Name",
-                                    value: formData.Name,
-                                    onChange: handleChange,
-                                    className: "input input-bordered w-full",
-                                    required: true
-                                }, void 0, false, {
-                                    fileName: "src/components/Registration.jsx",
-                                    lineNumber: 61,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/Registration.jsx",
-                            lineNumber: 57,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    className: "label",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "label-text text-base-content",
-                                        children: "Capacity (kg)"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Registration.jsx",
-                                        lineNumber: 73,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/Registration.jsx",
-                                    lineNumber: 72,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "number",
-                                    name: "Capacity",
-                                    value: formData.Capacity,
-                                    onChange: handleChange,
-                                    className: "input input-bordered w-full",
-                                    required: true
-                                }, void 0, false, {
-                                    fileName: "src/components/Registration.jsx",
-                                    lineNumber: 77,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/Registration.jsx",
-                            lineNumber: 71,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    className: "label",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "label-text text-base-content",
-                                        children: "Tyres"
-                                    }, void 0, false, {
-                                        fileName: "src/components/Registration.jsx",
-                                        lineNumber: 89,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/Registration.jsx",
-                                    lineNumber: 88,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "number",
-                                    name: "Tyres",
-                                    value: formData.Tyres,
-                                    onChange: handleChange,
-                                    className: "input input-bordered w-full",
-                                    required: true
-                                }, void 0, false, {
-                                    fileName: "src/components/Registration.jsx",
-                                    lineNumber: 91,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/Registration.jsx",
-                            lineNumber: 87,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            type: "submit",
-                            className: "btn btn-primary w-full",
-                            children: "Register"
-                        }, void 0, false, {
-                            fileName: "src/components/Registration.jsx",
-                            lineNumber: 101,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/Registration.jsx",
-                    lineNumber: 56,
-                    columnNumber: 9
-                }, undefined),
-                message && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "mt-4 alert alert-info text-sm justify-center",
-                    children: message
-                }, void 0, false, {
-                    fileName: "src/components/Registration.jsx",
-                    lineNumber: 107,
-                    columnNumber: 11
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/Registration.jsx",
-            lineNumber: 51,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/Registration.jsx",
-        lineNumber: 50,
-        columnNumber: 5
-    }, undefined);
-};
-_s(Registration, "qwJal9PK+hjf7Y7J6q1wQKtwIlY=");
-_c = Registration;
-exports.default = Registration;
-var _c;
-$RefreshReg$(_c, "Registration");
-
-  $parcel$ReactRefreshHelpers$8846.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"jQ8ng":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jQ8ng":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$1326 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$1326.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -27160,8 +27337,8 @@ Estimated Ride Duration
 */ const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId })=>{
     _s();
     const [message, setMessage] = (0, _react.useState)("");
+    const [showToast, setShowToast] = (0, _react.useState)(false);
     const availVehicles = (0, _reactRedux.useSelector)((Store)=>Store.AvailableReducer);
-    console.log("Reducer available->", availVehicles);
     const startTime = availVehicles.startTime;
     const fromPincode = availVehicles.fromPincode;
     const toPincode = availVehicles.toPincode;
@@ -27182,130 +27359,151 @@ Estimated Ride Duration
             });
             const res = await data.json();
             setMessage(res.message);
+            setShowToast(true);
+            setTimeout(()=>setShowToast(false), 3000);
         } catch (err) {
-            console.log("Somthing went Wrong in Booking.");
+            console.log("Something went wrong in Booking.");
         }
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex justify-center my-4",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "card w-96 bg-white shadow-xl border border-gray-200",
+                className: "flex justify-center my-4",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "card-body space-y-3",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                            className: "card-title text-xl font-semibold text-gray-800",
-                            children: [
-                                "\uD83D\uDE9A ",
-                                Name
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/VehicleCard.jsx",
-                            lineNumber: 46,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                            className: "text-gray-600 space-y-1",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                            className: "font-medium",
-                                            children: "Capacity:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/VehicleCard.jsx",
-                                            lineNumber: 52,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        " ",
-                                        Capacity,
-                                        " Kg"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/VehicleCard.jsx",
-                                    lineNumber: 51,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                            className: "font-medium",
-                                            children: "Tyres:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/VehicleCard.jsx",
-                                            lineNumber: 55,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        " ",
-                                        Tyres
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/VehicleCard.jsx",
-                                    lineNumber: 54,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                            className: "font-medium",
-                                            children: "Estimated Time:"
-                                        }, void 0, false, {
-                                            fileName: "src/components/VehicleCard.jsx",
-                                            lineNumber: 58,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        " ",
-                                        estimateTime,
-                                        " mins"
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/VehicleCard.jsx",
-                                    lineNumber: 57,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/VehicleCard.jsx",
-                            lineNumber: 50,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "card-actions justify-end mt-4",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                className: "btn btn-primary w-full",
-                                onClick: handleBook,
-                                children: "Book Vehicle"
+                    className: "card w-96 bg-white shadow-xl border border-gray-200",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "card-body space-y-3",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                className: "card-title text-xl font-semibold text-gray-800",
+                                children: Name
                             }, void 0, false, {
                                 fileName: "src/components/VehicleCard.jsx",
-                                lineNumber: 64,
+                                lineNumber: 51,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                className: "text-gray-600 space-y-1",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "font-medium",
+                                                children: "Capacity:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/VehicleCard.jsx",
+                                                lineNumber: 57,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            " ",
+                                            Capacity,
+                                            " Kg"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/VehicleCard.jsx",
+                                        lineNumber: 56,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "font-medium",
+                                                children: "Tyres:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/VehicleCard.jsx",
+                                                lineNumber: 60,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            " ",
+                                            Tyres
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/VehicleCard.jsx",
+                                        lineNumber: 59,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "font-medium",
+                                                children: "Estimated Time:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/VehicleCard.jsx",
+                                                lineNumber: 63,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            " ",
+                                            estimateTime,
+                                            " mins"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/VehicleCard.jsx",
+                                        lineNumber: 62,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/VehicleCard.jsx",
+                                lineNumber: 55,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "card-actions justify-end mt-4",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    className: "btn btn-primary w-full",
+                                    onClick: handleBook,
+                                    children: "Book Vehicle"
+                                }, void 0, false, {
+                                    fileName: "src/components/VehicleCard.jsx",
+                                    lineNumber: 68,
+                                    columnNumber: 15
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/VehicleCard.jsx",
+                                lineNumber: 67,
                                 columnNumber: 13
                             }, undefined)
-                        }, void 0, false, {
-                            fileName: "src/components/VehicleCard.jsx",
-                            lineNumber: 63,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/VehicleCard.jsx",
+                        lineNumber: 50,
+                        columnNumber: 11
+                    }, undefined)
+                }, void 0, false, {
                     fileName: "src/components/VehicleCard.jsx",
-                    lineNumber: 45,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/VehicleCard.jsx",
-                lineNumber: 44,
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined),
-            message
+            showToast && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "toast toast-center toast-middle",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: `alert ${message.toLowerCase().includes("success") ? "alert-success" : "alert-info"}`,
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: message
+                    }, void 0, false, {
+                        fileName: "src/components/VehicleCard.jsx",
+                        lineNumber: 79,
+                        columnNumber: 13
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/VehicleCard.jsx",
+                    lineNumber: 78,
+                    columnNumber: 11
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/VehicleCard.jsx",
+                lineNumber: 77,
+                columnNumber: 9
+            }, undefined)
         ]
-    }, void 0, true, {
-        fileName: "src/components/VehicleCard.jsx",
-        lineNumber: 43,
-        columnNumber: 5
-    }, undefined);
+    }, void 0, true);
 };
-_s(VehicleCard, "kpDYgYul6LLZHCltc4VOBCkrh8s=", false, function() {
+_s(VehicleCard, "iY89s+N7BYY4DJ0VbSqb7WEHUEs=", false, function() {
     return [
         (0, _reactRedux.useSelector)
     ];
