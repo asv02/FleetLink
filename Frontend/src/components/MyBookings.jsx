@@ -8,7 +8,7 @@ const MyBookings = () => {
 
   const fetchMyBookings = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/bookings/${customerId}`);
+      const response = await fetch(`http://backend:3000/api/bookings/${customerId}`);
       const data = await response.json();
 
       const filtered = data.bookings.filter((b) => b.booking !== null);
@@ -25,7 +25,7 @@ const MyBookings = () => {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/bookings/${bookingId}`, {
+      const res = await fetch(`http://backend:3000/api/bookings/${bookingId}`, {
         method: "DELETE",
       });
 

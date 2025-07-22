@@ -2,6 +2,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/postcss": "^4.1.11",
+    "dotenv": "^17.2.0",
     "parcel": "^2.15.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -15,7 +16,8 @@
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "",
   "license": "ISC",
@@ -26,12 +28,14 @@
     "crypto-browserify": "^3.12.1",
     "daisyui": "^5.0.46",
     "events": "^3.3.0",
+    "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
     "querystring-es3": "^0.2.1",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.4",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "vm-browserify": "^1.1.2"
   }
 }

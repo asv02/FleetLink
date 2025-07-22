@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./Backend
+    container_name: Backend
+    ports:
+      - "3000:3000"
+    networks:
+      - fleetlinknet
+    environment:
+      - MONGO_URI=mongodb+srv://rocktheway2akash:GrWPOgfFnWpQZxKx@fleetlink.j7scb1a.mongodb.net/FleetLink?retryWrites=true&w=majority&appName=FleetLink&family=4
+
+  frontend:
+    build: ./Frontend
+    container_name: Frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - fleetlinknet
+
+networks:
+  fleetlinknet:
+    driver: bridge

@@ -20,7 +20,7 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/api/vehicles", {
+      const res = await fetch("http://backend:3000/api/vehicles", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
