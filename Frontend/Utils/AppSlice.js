@@ -33,5 +33,6 @@ const AvailableSlice = createSlice({
   },
 });
 
+
 export const { addVehicle, removeBookedVehicle, clearVehicles } = AvailableSlice.actions;
 export const AvailableReducer = AvailableSlice.reducer;

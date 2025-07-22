@@ -9,7 +9,9 @@ const Navbar = () => {
     <div>
       <div className="navbar bg-base-100 shadow-sm">
         <div className="flex-1">
-          <Link to='/' className="btn btn-ghost text-xl">FleetLink</Link>
+          <Link to="/" className="btn btn-ghost text-xl">
+            FleetLink
+          </Link>
         </div>
         <div className="flex gap-2">
           <input
@@ -35,13 +37,16 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link to='/vehicle/registration' className="justify-between">
+                <Link to="/vehicle/registration" className="justify-between">
                   Registration
                   <span className="badge">New</span>
                 </Link>
               </li>
               <li>
-                <Link to='/vehicle/CheckAvailablity'>BookVehicle</Link>
+                <Link to="/vehicle/CheckAvailablity">BookVehicle</Link>
+              </li>
+              <li>
+                <Link to="/myBookings">My Bookings</Link>
               </li>
             </ul>
           </div>

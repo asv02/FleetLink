@@ -685,6 +685,8 @@ var _bodyDefault = parcelHelpers.interopDefault(_body);
 var _reactRouter = require("react-router");
 var _registration = require("./components/Registration");
 var _registrationDefault = parcelHelpers.interopDefault(_registration);
+var _myBookings = require("./components/MyBookings");
+var _myBookingsDefault = parcelHelpers.interopDefault(_myBookings);
 var _bookVehicle = require("./components/BookVehicle");
 var _bookVehicleDefault = parcelHelpers.interopDefault(_bookVehicle);
 var _navBar = require("./components/NavBar");
@@ -704,7 +706,7 @@ const App = ()=>{
                     path: "/",
                     element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 17,
+                        lineNumber: 18,
                         columnNumber: 36
                     }, void 0),
                     children: [
@@ -712,57 +714,69 @@ const App = ()=>{
                             path: "/vehicle/registration",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registrationDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 20,
+                                lineNumber: 21,
                                 columnNumber: 24
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 18,
+                            lineNumber: 19,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Route), {
                             path: "/vehicle/CheckAvailablity",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _checkAvailabilityDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 24,
+                                lineNumber: 25,
                                 columnNumber: 24
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 22,
+                            lineNumber: 23,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Route), {
                             path: "/bookVehicle",
                             element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookVehicleDefault.default), {}, void 0, false, {
                                 fileName: "src/App.js",
-                                lineNumber: 26,
+                                lineNumber: 27,
                                 columnNumber: 49
                             }, void 0)
                         }, void 0, false, {
                             fileName: "src/App.js",
-                            lineNumber: 26,
+                            lineNumber: 27,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Route), {
+                            path: "/myBookings",
+                            element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _myBookingsDefault.default), {}, void 0, false, {
+                                fileName: "src/App.js",
+                                lineNumber: 28,
+                                columnNumber: 48
+                            }, void 0)
+                        }, void 0, false, {
+                            fileName: "src/App.js",
+                            lineNumber: 28,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/App.js",
-                    lineNumber: 17,
+                    lineNumber: 18,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 16,
+                lineNumber: 17,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 15,
+            lineNumber: 16,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 14,
+        lineNumber: 15,
         columnNumber: 5
     }, undefined);
 };
@@ -770,7 +784,7 @@ _c = App;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 35,
+    lineNumber: 37,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -781,7 +795,7 @@ $RefreshReg$(_c, "App");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","../src/components/Body":"c4zl2","react-router":"2jawN","./components/Registration":"eE5Yg","./components/BookVehicle":"jQ8ng","./components/NavBar":"e6v2h","./components/CheckAvailability":"qnUph","react-redux":"hbNxT","../Utils/AppStore":"lmmYD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-dom/client":"hrvwu","../src/components/Body":"c4zl2","react-router":"2jawN","./components/Registration":"eE5Yg","./components/BookVehicle":"jQ8ng","./components/NavBar":"e6v2h","./components/CheckAvailability":"qnUph","react-redux":"hbNxT","../Utils/AppStore":"lmmYD","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","./components/MyBookings":"dIBZL"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -24620,7 +24634,7 @@ const Navbar = ()=>{
                             className: "input input-bordered w-24 md:w-auto"
                         }, void 0, false, {
                             fileName: "src/components/NavBar.jsx",
-                            lineNumber: 15,
+                            lineNumber: 17,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -24637,17 +24651,17 @@ const Navbar = ()=>{
                                             src: "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                                         }, void 0, false, {
                                             fileName: "src/components/NavBar.jsx",
-                                            lineNumber: 27,
+                                            lineNumber: 29,
                                             columnNumber: 17
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/components/NavBar.jsx",
-                                        lineNumber: 26,
+                                        lineNumber: 28,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/NavBar.jsx",
-                                    lineNumber: 21,
+                                    lineNumber: 23,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -24665,18 +24679,18 @@ const Navbar = ()=>{
                                                         children: "New"
                                                     }, void 0, false, {
                                                         fileName: "src/components/NavBar.jsx",
-                                                        lineNumber: 40,
+                                                        lineNumber: 42,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/components/NavBar.jsx",
-                                                lineNumber: 38,
+                                                lineNumber: 40,
                                                 columnNumber: 17
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/NavBar.jsx",
-                                            lineNumber: 37,
+                                            lineNumber: 39,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -24685,30 +24699,44 @@ const Navbar = ()=>{
                                                 children: "BookVehicle"
                                             }, void 0, false, {
                                                 fileName: "src/components/NavBar.jsx",
-                                                lineNumber: 44,
+                                                lineNumber: 46,
                                                 columnNumber: 17
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/components/NavBar.jsx",
-                                            lineNumber: 43,
+                                            lineNumber: 45,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
+                                                to: "/myBookings",
+                                                children: "My Bookings"
+                                            }, void 0, false, {
+                                                fileName: "src/components/NavBar.jsx",
+                                                lineNumber: 49,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        }, void 0, false, {
+                                            fileName: "src/components/NavBar.jsx",
+                                            lineNumber: 48,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/NavBar.jsx",
-                                    lineNumber: 33,
+                                    lineNumber: 35,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/NavBar.jsx",
-                            lineNumber: 20,
+                            lineNumber: 22,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/NavBar.jsx",
-                    lineNumber: 14,
+                    lineNumber: 16,
                     columnNumber: 9
                 }, undefined)
             ]
@@ -32737,6 +32765,228 @@ const Store = (0, _toolkit.configureStore)({
 });
 exports.default = Store;
 
-},{"@reduxjs/toolkit":"fKS5f","../Utils/AppSlice":"gOLlA","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["frqA7","hh6uc"], "hh6uc", "parcelRequire10c2", {}, null, null, "http://localhost:1234")
+},{"@reduxjs/toolkit":"fKS5f","../Utils/AppSlice":"gOLlA","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dIBZL":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$003b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$003b.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$003b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _s = $RefreshSig$();
+const MyBookings = ()=>{
+    _s();
+    const [myBookings, setMyBookings] = (0, _react.useState)([]);
+    const [loading, setLoading] = (0, _react.useState)(true);
+    const customerId = "101"; // need real ID
+    const fetchMyBookings = async ()=>{
+        try {
+            const response = await fetch(`http://localhost:3000/api/bookings/${customerId}`);
+            const data = await response.json();
+            const filtered = data.bookings.filter((b)=>b.booking !== null);
+            setMyBookings(filtered);
+        } catch (error) {
+            console.error("Error fetching bookings:", error);
+        } finally{
+            setLoading(false);
+        }
+    };
+    const cancelBooking = async (bookingId)=>{
+        const confirmed = window.confirm("Are you sure you want to cancel this booking?");
+        if (!confirmed) return;
+        try {
+            const res = await fetch(`http://localhost:3000/api/bookings/${bookingId}`, {
+                method: "DELETE"
+            });
+            const result = await res.json();
+            if (res.ok) {
+                alert("Booking cancelled successfully.");
+                setMyBookings((prev)=>prev.filter((trip)=>trip.booking._id !== bookingId));
+            } else alert(result.message || "Failed to cancel booking.");
+        } catch (err) {
+            console.error("Cancel error:", err);
+            alert("Something went wrong while cancelling.");
+        }
+    };
+    (0, _react.useEffect)(()=>{
+        fetchMyBookings();
+    }, []);
+    if (loading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "text-center mt-10 text-lg",
+        children: "Loading bookings..."
+    }, void 0, false, {
+        fileName: "src/components/MyBookings.jsx",
+        lineNumber: 52,
+        columnNumber: 12
+    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "max-w-4xl mx-auto mt-8",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                className: "text-2xl font-bold mb-4 text-center",
+                children: "My Bookings"
+            }, void 0, false, {
+                fileName: "src/components/MyBookings.jsx",
+                lineNumber: 57,
+                columnNumber: 7
+            }, undefined),
+            myBookings?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "text-center text-gray-600",
+                children: "No bookings yet."
+            }, void 0, false, {
+                fileName: "src/components/MyBookings.jsx",
+                lineNumber: 59,
+                columnNumber: 9
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "grid gap-6",
+                children: myBookings.map((trip)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "card bg-white shadow-md p-6 border border-black-200",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                className: "text-xl text-gray-700 font-semibold",
+                                children: trip.booking.VehicleId?.Name
+                            }, void 0, false, {
+                                fileName: "src/components/MyBookings.jsx",
+                                lineNumber: 67,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                className: "mt-2 text-gray-700",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                                children: "From:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MyBookings.jsx",
+                                                lineNumber: 69,
+                                                columnNumber: 21
+                                            }, undefined),
+                                            " ",
+                                            trip.booking.fromPinCode
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MyBookings.jsx",
+                                        lineNumber: 69,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                                children: "To:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MyBookings.jsx",
+                                                lineNumber: 70,
+                                                columnNumber: 21
+                                            }, undefined),
+                                            " ",
+                                            trip.booking.toPinCode
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MyBookings.jsx",
+                                        lineNumber: 70,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                                children: "Start:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MyBookings.jsx",
+                                                lineNumber: 71,
+                                                columnNumber: 21
+                                            }, undefined),
+                                            " ",
+                                            new Date(trip.booking.startTime).toLocaleString()
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MyBookings.jsx",
+                                        lineNumber: 71,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                                children: "End:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MyBookings.jsx",
+                                                lineNumber: 72,
+                                                columnNumber: 21
+                                            }, undefined),
+                                            " ",
+                                            new Date(trip.booking.endTime).toLocaleString()
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MyBookings.jsx",
+                                        lineNumber: 72,
+                                        columnNumber: 17
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("b", {
+                                                children: "Capacity:"
+                                            }, void 0, false, {
+                                                fileName: "src/components/MyBookings.jsx",
+                                                lineNumber: 73,
+                                                columnNumber: 21
+                                            }, undefined),
+                                            " ",
+                                            trip.booking.VehicleId?.Capacity,
+                                            " Kg"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/MyBookings.jsx",
+                                        lineNumber: 73,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/MyBookings.jsx",
+                                lineNumber: 68,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                onClick: ()=>cancelBooking(trip.booking._id),
+                                className: "btn btn-error mt-4",
+                                children: "Cancel Booking"
+                            }, void 0, false, {
+                                fileName: "src/components/MyBookings.jsx",
+                                lineNumber: 75,
+                                columnNumber: 15
+                            }, undefined)
+                        ]
+                    }, trip.booking._id, true, {
+                        fileName: "src/components/MyBookings.jsx",
+                        lineNumber: 63,
+                        columnNumber: 13
+                    }, undefined))
+            }, void 0, false, {
+                fileName: "src/components/MyBookings.jsx",
+                lineNumber: 61,
+                columnNumber: 9
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/MyBookings.jsx",
+        lineNumber: 56,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MyBookings, "BOzfeM5AidhX7aJ1UnU2nOGmrM0=");
+_c = MyBookings;
+exports.default = MyBookings;
+var _c;
+$RefreshReg$(_c, "MyBookings");
+
+  $parcel$ReactRefreshHelpers$003b.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","react":"jMk1U"}]},["frqA7","hh6uc"], "hh6uc", "parcelRequire10c2", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=Frontend.2c54e4d8.js.map

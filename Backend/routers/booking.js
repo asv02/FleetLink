@@ -117,4 +117,58 @@ router.post("/api/bookings", async (req, res) => {
   }
 });
 
+// /////***I have taken id as CustomerId and will be harcoding to 101 in NavBar dropDown***/////
+router.get("/api/bookings/:id", async (req, res) => {
+  try {
+    const customerId = req.params.id;
+
+    if (!customerId) {
+      return res.status(400).json({ message: "Customer ID is required" });
+    }
+    const trips = await Trip.find({ customerId })
+      .populate({
+        path: "bookingId",
+        populate: {
+          path: "VehicleId", 
+        },
+      });
+
+    if (!trips || trips.length === 0) {
+      return res.status(404).json({ message: "No bookings found for this customer" });
+    }
+
+    const enrichedTrips = trips.map((trip) => ({
+      _id: trip._id,
+      booking: trip.bookingId,
+    }));
+
+    res.status(200).json({ bookings: enrichedTrips });
+
+  } catch (error) {
+    console.error(`Error fetching bookings for customer ${req.params.id}:`, error.message);
+    res.status(500).json({ message: "Server error while fetching bookings" });
+  }
+});
+
+router.delete("/api/bookings/:bookingId", async (req, res) => {
+  try {
+    const bookingId = req.params.bookingId;
+    if (!bookingId) {
+      return res.status(400).json({ message: "Booking ID is required" });
+    }
+    const booking = await Booking.findById(bookingId);
+    if (!booking) {
+      return res.status(404).json({ message: "Booking not found" });
+    }
+    await Trip.deleteOne({ bookingId });
+    await Booking.deleteOne({ _id: bookingId });
+
+    res.status(200).json({ message: "Booking cancelled successfully" });
+  } catch (error) {
+    console.error(`Error cancelling booking:`, error.message);
+    res.status(500).json({ message: "Server error while cancelling booking" });
+  }
+});
+
+
 module.exports = router;

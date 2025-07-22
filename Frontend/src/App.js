@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Body from "../src/components/Body";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Registration from "./components/Registration";
+import MyBookings from "./components/MyBookings";
 import BookVehicle from "./components/BookVehicle";
 import NavBar from "./components/NavBar";
 import CheckAvailability from "./components/CheckAvailability";
@@ -23,7 +24,8 @@ const App = () => {
               path="/vehicle/CheckAvailablity"
               element={<CheckAvailability />}
             ></Route>
-            <Route path="/bookVehicle" element={<BookVehicle />}></Route>
+            <Route path="/bookVehicle" element={<BookVehicle/>}></Route>
+            <Route path="/myBookings" element={<MyBookings/>}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
