@@ -1,7 +1,7 @@
 # FleetLink
 FleetLink - Logistics Vehicle Booking System
 
-![Registration](RegistrationWithNavaBar.png)
+![Registration](assets/RegistrationWithNavaBar.png)
 ![CheckAvailability](CheckAvailability.png)
 ![SuccessfullyBookedVehicle](SuccessfullyBookedVehicle.png)
 ![AvailableVehicle](AvailableVehicle.png)
