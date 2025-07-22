@@ -16236,7 +16236,7 @@ $RefreshReg$(_c, "Body");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","./NavBar":"e6v2h","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react":"jMk1U"}],"2jawN":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react-router":"2jawN","./NavBar":"e6v2h","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"2jawN":[function(require,module,exports,__globalThis) {
 /**
  * react-router v7.7.0
  *
@@ -27247,60 +27247,52 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
 var _vehicleCard = require("./VehicleCard");
 var _vehicleCardDefault = parcelHelpers.interopDefault(_vehicleCard);
-var _reactRedux = require("react-redux");
 var _s = $RefreshSig$();
 const BookVehicle = ()=>{
     _s();
-    const [vehicles, setVehicles] = (0, _react.useState)([]);
-    const availVehicles = (0, _reactRedux.useSelector)((Store)=>Store.AvailableReducer);
-    console.log("Reducer available->", availVehicles);
-    const startTime = availVehicles.startTime;
-    const fromPincode = availVehicles.fromPincode;
-    const toPincode = availVehicles.toPincode;
-    (0, _react.useEffect)(()=>{
-        setVehicles(availVehicles?.vehicle?.availableVehicles || []);
-    }, [
-        availVehicles
-    ]);
+    const { availableVehicles, estimatedTime } = (0, _reactRedux.useSelector)((store)=>store.AvailableReducer);
+    console.log('availableVehicles->', availableVehicles);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "min-h-screen bg-base-300 p-6",
+        className: "px-4 py-6",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                className: "text-3xl font-bold text-center text-white mb-6",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                className: "text-3xl font-semibold text-center mb-6",
                 children: "Available Vehicles"
             }, void 0, false, {
                 fileName: "src/components/BookVehicle.jsx",
-                lineNumber: 21,
+                lineNumber: 13,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "flex flex-wrap justify-center gap-6",
-                children: vehicles.map((veh, ind)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _vehicleCardDefault.default), {
-                        Name: veh.Name,
-                        Capacity: veh.Capacity,
-                        Tyres: veh.Tyres,
-                        estimateTime: availVehicles?.vehicle?.estimatedTime,
-                        vehicleId: veh._id
-                    }, ind, false, {
-                        fileName: "src/components/BookVehicle.jsx",
-                        lineNumber: 27,
-                        columnNumber: 11
-                    }, undefined))
+            availableVehicles.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "text-center text-gray-500",
+                children: "No vehicles available."
             }, void 0, false, {
                 fileName: "src/components/BookVehicle.jsx",
-                lineNumber: 25,
-                columnNumber: 7
-            }, undefined)
+                lineNumber: 15,
+                columnNumber: 9
+            }, undefined) : availableVehicles.map((veh)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _vehicleCardDefault.default), {
+                    vehicleId: veh._id,
+                    Name: veh.Name,
+                    Capacity: veh.Capacity,
+                    Tyres: veh.Tyres,
+                    estimateTime: estimatedTime
+                }, veh._id, false, {
+                    fileName: "src/components/BookVehicle.jsx",
+                    lineNumber: 18,
+                    columnNumber: 11
+                }, undefined))
         ]
     }, void 0, true, {
         fileName: "src/components/BookVehicle.jsx",
-        lineNumber: 20,
+        lineNumber: 12,
         columnNumber: 5
     }, undefined);
 };
-_s(BookVehicle, "RmGkxDNQHoteRfV/sR2pvj5mFqE=", false, function() {
+_s(BookVehicle, "3q07Xc7TaJAWRCUtKsL4fTeVFJg=", false, function() {
     return [
         (0, _reactRedux.useSelector)
     ];
@@ -27315,210 +27307,7 @@ $RefreshReg$(_c, "BookVehicle");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./VehicleCard":"1eymV","react-redux":"hbNxT","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"1eymV":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$4c36 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$4c36.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4c36.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactRedux = require("react-redux");
-var _s = $RefreshSig$();
-/*
-Vehicle Name
-Capacity
-Tyres
-Estimated Ride Duration
-*/ const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId })=>{
-    _s();
-    const [message, setMessage] = (0, _react.useState)("");
-    const [showToast, setShowToast] = (0, _react.useState)(false);
-    const availVehicles = (0, _reactRedux.useSelector)((Store)=>Store.AvailableReducer);
-    const startTime = availVehicles.startTime;
-    const fromPincode = availVehicles.fromPincode;
-    const toPincode = availVehicles.toPincode;
-    const handleBook = async ()=>{
-        try {
-            const data = await fetch("http://localhost:3000/api/bookings", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    VehicleId: vehicleId,
-                    fromPinCode: fromPincode,
-                    toPinCode: toPincode,
-                    startTime: startTime,
-                    customerId: "101"
-                })
-            });
-            const res = await data.json();
-            setMessage(res.message);
-            setShowToast(true);
-            setTimeout(()=>setShowToast(false), 3000);
-        } catch (err) {
-            console.log("Something went wrong in Booking.");
-        }
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "flex justify-center my-4",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "card w-96 bg-white shadow-xl border border-gray-200",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "card-body space-y-3",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                                className: "card-title text-xl font-semibold text-gray-800",
-                                children: Name
-                            }, void 0, false, {
-                                fileName: "src/components/VehicleCard.jsx",
-                                lineNumber: 51,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                                className: "text-gray-600 space-y-1",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                className: "font-medium",
-                                                children: "Capacity:"
-                                            }, void 0, false, {
-                                                fileName: "src/components/VehicleCard.jsx",
-                                                lineNumber: 57,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            " ",
-                                            Capacity,
-                                            " Kg"
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/VehicleCard.jsx",
-                                        lineNumber: 56,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                className: "font-medium",
-                                                children: "Tyres:"
-                                            }, void 0, false, {
-                                                fileName: "src/components/VehicleCard.jsx",
-                                                lineNumber: 60,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            " ",
-                                            Tyres
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/VehicleCard.jsx",
-                                        lineNumber: 59,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                className: "font-medium",
-                                                children: "Estimated Time:"
-                                            }, void 0, false, {
-                                                fileName: "src/components/VehicleCard.jsx",
-                                                lineNumber: 63,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            " ",
-                                            estimateTime,
-                                            " mins"
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/VehicleCard.jsx",
-                                        lineNumber: 62,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/VehicleCard.jsx",
-                                lineNumber: 55,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "card-actions justify-end mt-4",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    className: "btn btn-primary w-full",
-                                    onClick: handleBook,
-                                    children: "Book Vehicle"
-                                }, void 0, false, {
-                                    fileName: "src/components/VehicleCard.jsx",
-                                    lineNumber: 68,
-                                    columnNumber: 15
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/components/VehicleCard.jsx",
-                                lineNumber: 67,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/VehicleCard.jsx",
-                        lineNumber: 50,
-                        columnNumber: 11
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/VehicleCard.jsx",
-                    lineNumber: 49,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/VehicleCard.jsx",
-                lineNumber: 48,
-                columnNumber: 7
-            }, undefined),
-            showToast && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "toast toast-center toast-middle",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: `alert ${message.toLowerCase().includes("success") ? "alert-success" : "alert-info"}`,
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: message
-                    }, void 0, false, {
-                        fileName: "src/components/VehicleCard.jsx",
-                        lineNumber: 79,
-                        columnNumber: 13
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/VehicleCard.jsx",
-                    lineNumber: 78,
-                    columnNumber: 11
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/VehicleCard.jsx",
-                lineNumber: 77,
-                columnNumber: 9
-            }, undefined)
-        ]
-    }, void 0, true);
-};
-_s(VehicleCard, "iY89s+N7BYY4DJ0VbSqb7WEHUEs=", false, function() {
-    return [
-        (0, _reactRedux.useSelector)
-    ];
-});
-_c = VehicleCard;
-exports.default = VehicleCard;
-var _c;
-$RefreshReg$(_c, "VehicleCard");
-
-  $parcel$ReactRefreshHelpers$4c36.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"hbNxT":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","./VehicleCard":"1eymV","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"hbNxT":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Provider", ()=>Provider_default);
@@ -28521,301 +28310,221 @@ module.exports = require("374a059340689e89");
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
 })();
 
-},{"8b38fc6c74f16e20":"jMk1U"}],"qnUph":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$244f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$244f.init();
+},{"8b38fc6c74f16e20":"jMk1U"}],"1eymV":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$4c36 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$4c36.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
 var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$244f.prelude(module);
+$parcel$ReactRefreshHelpers$4c36.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRedux = require("react-redux");
 var _appSlice = require("../../Utils/AppSlice");
-var _reactRouter = require("react-router");
 var _s = $RefreshSig$();
-const CheckAvailability = ()=>{
+const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId })=>{
     _s();
-    const [formData, setFormData] = (0, _reactDefault.default).useState({
-        Capacity: "",
-        FromPincode: "",
-        ToPincode: "",
-        DateTime: ""
-    });
+    const [message, setMessage] = (0, _react.useState)("");
     const dispatch = (0, _reactRedux.useDispatch)();
-    const navigate = (0, _reactRouter.useNavigate)();
-    const handleChange = (e)=>{
-        setFormData((prev)=>({
-                ...prev,
-                [e.target.name]: e.target.value
-            }));
-    };
-    const handleSubmit = async (event)=>{
-        event.preventDefault();
-        console.log("Checking Availability with data:", formData);
-        const localDate = new Date(formData.DateTime);
-        const utcDate = localDate.toISOString(); // This ensures consistent backend interpretation
+    const { startTime, fromPincode, toPincode } = (0, _reactRedux.useSelector)((store)=>store.AvailableReducer);
+    const handleBook = async ()=>{
         try {
-            const response = await fetch(`http://localhost:3000/api/vehicles/available?capacityRequired=${formData.Capacity}&fromPincode=${formData.FromPincode}&toPinCode=${formData.ToPincode}&startTime=${utcDate}`, {
-                method: "GET",
+            const response = await fetch("http://localhost:3000/api/bookings", {
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json"
-                }
+                },
+                body: JSON.stringify({
+                    VehicleId: vehicleId,
+                    fromPinCode: fromPincode,
+                    toPinCode: toPincode,
+                    startTime: startTime,
+                    customerId: "101"
+                })
             });
-            if (!response.ok) throw new Error("Network response was not ok");
-            const data = await response.json();
-            dispatch((0, _appSlice.addVehicle)({
-                vehicle: data,
-                startTime: formData.DateTime,
-                toPincode: formData.ToPincode,
-                fromPincode: formData.FromPincode
-            }));
-            navigate("/bookVehicle");
-            console.log("Available Vehicles:", data.availableVehicles);
+            const res = await response.json();
+            setMessage(`success:${res.message}`);
+            alert("Successfully Booked the Vehicle...");
+            if (res.message.toLowerCase().includes("success")) dispatch((0, _appSlice.removeBookedVehicle)(vehicleId));
         } catch (err) {
-            console.error("Error checking availability:", err);
-            alert("Error checking availability. Please try again later.");
+            console.log("Error during booking:", err);
+            setMessage(`Failed:Booking failed`);
+            alert("Failed to Book the Vehicle...");
         }
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex justify-center items-center min-h-screen bg-base-200",
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "card w-full max-w-md shadow-xl bg-base-100 p-6",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                    className: "text-2xl font-bold mb-4 text-center",
-                    children: "Check Availability"
-                }, void 0, false, {
-                    fileName: "src/components/CheckAvailability.jsx",
-                    lineNumber: 66,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
-                    onSubmit: handleSubmit,
-                    className: "space-y-4",
+            className: "flex justify-center my-4",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "card w-96 bg-white shadow-xl border border-gray-200",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "card-body space-y-3",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-control",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    htmlFor: "Capacity",
-                                    className: "label",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "label-text",
-                                        children: "Capacity Required (kg)"
-                                    }, void 0, false, {
-                                        fileName: "src/components/CheckAvailability.jsx",
-                                        lineNumber: 72,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 71,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "number",
-                                    name: "Capacity",
-                                    id: "Capacity",
-                                    value: formData.Capacity,
-                                    onChange: handleChange,
-                                    className: "input input-bordered",
-                                    placeholder: "Enter required capacity",
-                                    required: true
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 74,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/CheckAvailability.jsx",
-                            lineNumber: 70,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-control",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    htmlFor: "FromPincode",
-                                    className: "label",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "label-text",
-                                        children: "From Pincode"
-                                    }, void 0, false, {
-                                        fileName: "src/components/CheckAvailability.jsx",
-                                        lineNumber: 88,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 87,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "text",
-                                    name: "FromPincode",
-                                    id: "FromPincode",
-                                    value: formData.FromPincode,
-                                    onChange: handleChange,
-                                    className: "input input-bordered",
-                                    placeholder: "From area pincode",
-                                    required: true
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 90,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/CheckAvailability.jsx",
-                            lineNumber: 86,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-control",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    htmlFor: "ToPincode",
-                                    className: "label",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "label-text",
-                                        children: "To Pincode"
-                                    }, void 0, false, {
-                                        fileName: "src/components/CheckAvailability.jsx",
-                                        lineNumber: 104,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 103,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "text",
-                                    name: "ToPincode",
-                                    id: "ToPincode",
-                                    value: formData.ToPincode,
-                                    onChange: handleChange,
-                                    className: "input input-bordered",
-                                    placeholder: "To area pincode",
-                                    required: true
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 106,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/CheckAvailability.jsx",
-                            lineNumber: 102,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "form-control",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                                    htmlFor: "DateTime",
-                                    className: "label",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                        className: "label-text",
-                                        children: "Start Date & Time"
-                                    }, void 0, false, {
-                                        fileName: "src/components/CheckAvailability.jsx",
-                                        lineNumber: 120,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 119,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    type: "datetime-local",
-                                    name: "DateTime",
-                                    id: "DateTime",
-                                    value: formData.DateTime,
-                                    onChange: handleChange,
-                                    className: "input input-bordered",
-                                    required: true
-                                }, void 0, false, {
-                                    fileName: "src/components/CheckAvailability.jsx",
-                                    lineNumber: 122,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/CheckAvailability.jsx",
-                            lineNumber: 118,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            type: "submit",
-                            className: "btn btn-primary w-full",
-                            children: "Check Availability"
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            className: "card-title text-xl font-semibold text-gray-800",
+                            children: Name
                         }, void 0, false, {
-                            fileName: "src/components/CheckAvailability.jsx",
-                            lineNumber: 133,
-                            columnNumber: 11
+                            fileName: "src/components/VehicleCard.jsx",
+                            lineNumber: 47,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                            className: "text-gray-600 space-y-1",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "font-medium",
+                                            children: "Capacity:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/VehicleCard.jsx",
+                                            lineNumber: 51,
+                                            columnNumber: 19
+                                        }, undefined),
+                                        " ",
+                                        Capacity,
+                                        " Kg"
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/VehicleCard.jsx",
+                                    lineNumber: 51,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "font-medium",
+                                            children: "Tyres:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/VehicleCard.jsx",
+                                            lineNumber: 52,
+                                            columnNumber: 19
+                                        }, undefined),
+                                        " ",
+                                        Tyres
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/VehicleCard.jsx",
+                                    lineNumber: 52,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                            className: "font-medium",
+                                            children: "Estimated Time:"
+                                        }, void 0, false, {
+                                            fileName: "src/components/VehicleCard.jsx",
+                                            lineNumber: 53,
+                                            columnNumber: 19
+                                        }, undefined),
+                                        " ",
+                                        estimateTime,
+                                        " hrs."
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/VehicleCard.jsx",
+                                    lineNumber: 53,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/VehicleCard.jsx",
+                            lineNumber: 50,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "card-actions justify-end mt-4",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "btn btn-primary w-full",
+                                onClick: handleBook,
+                                children: "Book Vehicle"
+                            }, void 0, false, {
+                                fileName: "src/components/VehicleCard.jsx",
+                                lineNumber: 56,
+                                columnNumber: 15
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/VehicleCard.jsx",
+                            lineNumber: 55,
+                            columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
-                    fileName: "src/components/CheckAvailability.jsx",
-                    lineNumber: 69,
-                    columnNumber: 9
+                    fileName: "src/components/VehicleCard.jsx",
+                    lineNumber: 46,
+                    columnNumber: 11
                 }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/CheckAvailability.jsx",
-            lineNumber: 65,
+            }, void 0, false, {
+                fileName: "src/components/VehicleCard.jsx",
+                lineNumber: 45,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/components/VehicleCard.jsx",
+            lineNumber: 44,
             columnNumber: 7
         }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/CheckAvailability.jsx",
-        lineNumber: 64,
-        columnNumber: 5
-    }, undefined);
+    }, void 0, false);
 };
-_s(CheckAvailability, "AdtaQ0mC6tNKiqn5ee3ddliPMzw=", false, function() {
+_s(VehicleCard, "IanbtUdVdKAUaITxbqW5uH87iac=", false, function() {
     return [
         (0, _reactRedux.useDispatch),
-        (0, _reactRouter.useNavigate)
+        (0, _reactRedux.useSelector)
     ];
 });
-_c = CheckAvailability;
-exports.default = CheckAvailability;
+_c = VehicleCard;
+exports.default = VehicleCard;
 var _c;
-$RefreshReg$(_c, "CheckAvailability");
+$RefreshReg$(_c, "VehicleCard");
 
-  $parcel$ReactRefreshHelpers$244f.postlude(module);
+  $parcel$ReactRefreshHelpers$4c36.postlude(module);
 } finally {
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","../../Utils/AppSlice":"gOLlA","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"gOLlA":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","../../Utils/AppSlice":"gOLlA","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"gOLlA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addVehicle", ()=>addVehicle);
-parcelHelpers.export(exports, "removeVehicle", ()=>removeVehicle);
+parcelHelpers.export(exports, "removeBookedVehicle", ()=>removeBookedVehicle);
+parcelHelpers.export(exports, "clearVehicles", ()=>clearVehicles);
 parcelHelpers.export(exports, "AvailableReducer", ()=>AvailableReducer);
 var _toolkit = require("@reduxjs/toolkit");
-const AvailableSlice = new (0, _toolkit.createSlice)({
+const AvailableSlice = (0, _toolkit.createSlice)({
     name: "AvailableVehicle",
-    initialState: {},
+    initialState: {
+        availableVehicles: [],
+        startTime: null,
+        fromPincode: null,
+        toPincode: null,
+        estimatedTime: null
+    },
     reducers: {
         addVehicle: (state, action)=>{
-            return action.payload;
+            return {
+                availableVehicles: action.payload.vehicle.availableVehicles,
+                startTime: action.payload.startTime,
+                fromPincode: action.payload.fromPincode,
+                toPincode: action.payload.toPincode,
+                estimatedTime: action.payload.estimatedTime
+            };
         },
-        removeVehicle: (state, action)=>{
-            return null;
-        }
+        removeBookedVehicle: (state, action)=>{
+            state.availableVehicles = state.availableVehicles.filter((veh)=>veh._id !== action.payload);
+        },
+        clearVehicles: ()=>({
+                availableVehicles: [],
+                startTime: null,
+                fromPincode: null,
+                toPincode: null
+            })
     }
 });
-const { addVehicle, removeVehicle } = AvailableSlice.actions;
+const { addVehicle, removeBookedVehicle, clearVehicles } = AvailableSlice.actions;
 const AvailableReducer = AvailableSlice.reducer;
 
 },{"@reduxjs/toolkit":"fKS5f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fKS5f":[function(require,module,exports,__globalThis) {
@@ -32780,7 +32489,243 @@ function createThunkMiddleware(extraArgument) {
 var thunk = createThunkMiddleware();
 var withExtraArgument = createThunkMiddleware;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lmmYD":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"qnUph":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$244f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$244f.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$244f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _appSlice = require("../../Utils/AppSlice");
+var _reactRouter = require("react-router");
+var _s = $RefreshSig$();
+const CheckAvailability = ()=>{
+    _s();
+    const [formData, setFormData] = (0, _reactDefault.default).useState({
+        Capacity: "",
+        FromPincode: "",
+        ToPincode: "",
+        DateTime: ""
+    });
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const navigate = (0, _reactRouter.useNavigate)();
+    const handleChange = (e)=>{
+        setFormData((prev)=>({
+                ...prev,
+                [e.target.name]: e.target.value
+            }));
+    };
+    const handleSubmit = async (event)=>{
+        event.preventDefault();
+        const localDate = new Date(formData.DateTime);
+        const utcDate = localDate.toISOString();
+        try {
+            const response = await fetch(`http://localhost:3000/api/vehicles/available?capacityRequired=${formData.Capacity}&fromPincode=${formData.FromPincode}&toPinCode=${formData.ToPincode}&startTime=${utcDate}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            if (!response.ok) throw new Error("Network error");
+            const data = await response.json();
+            console.log('data->', data);
+            dispatch((0, _appSlice.addVehicle)({
+                vehicle: data,
+                startTime: formData.DateTime,
+                toPincode: formData.ToPincode,
+                fromPincode: formData.FromPincode,
+                estimatedTime: data.estimatedTime
+            }));
+            navigate("/bookVehicle");
+        } catch (err) {
+            console.log("Availability check failed:", err);
+            alert("Error checking availability. Please try again later.");
+        }
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flex justify-center items-center min-h-screen bg-base-200",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "card w-full max-w-md shadow-xl bg-base-100 p-6",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    className: "text-2xl font-bold mb-4 text-center",
+                    children: "Check Availability"
+                }, void 0, false, {
+                    fileName: "src/components/CheckAvailability.jsx",
+                    lineNumber: 62,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    onSubmit: handleSubmit,
+                    className: "space-y-4",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-control",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "label",
+                                    children: "Capacity Required (kg)"
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 67,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "number",
+                                    name: "Capacity",
+                                    value: formData.Capacity,
+                                    onChange: handleChange,
+                                    className: "input input-bordered",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 68,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/CheckAvailability.jsx",
+                            lineNumber: 66,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-control",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "label",
+                                    children: "From Pincode"
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 79,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    name: "FromPincode",
+                                    value: formData.FromPincode,
+                                    onChange: handleChange,
+                                    className: "input input-bordered",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 80,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/CheckAvailability.jsx",
+                            lineNumber: 78,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-control",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "label",
+                                    children: "To Pincode"
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 91,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "text",
+                                    name: "ToPincode",
+                                    value: formData.ToPincode,
+                                    onChange: handleChange,
+                                    className: "input input-bordered",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 92,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/CheckAvailability.jsx",
+                            lineNumber: 90,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "form-control",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "label",
+                                    children: "Start Date & Time"
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 103,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    type: "datetime-local",
+                                    name: "DateTime",
+                                    value: formData.DateTime,
+                                    onChange: handleChange,
+                                    className: "input input-bordered",
+                                    required: true
+                                }, void 0, false, {
+                                    fileName: "src/components/CheckAvailability.jsx",
+                                    lineNumber: 104,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/CheckAvailability.jsx",
+                            lineNumber: 102,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            type: "submit",
+                            className: "btn btn-primary w-full",
+                            children: "Check Availability"
+                        }, void 0, false, {
+                            fileName: "src/components/CheckAvailability.jsx",
+                            lineNumber: 114,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/CheckAvailability.jsx",
+                    lineNumber: 65,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/CheckAvailability.jsx",
+            lineNumber: 61,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/CheckAvailability.jsx",
+        lineNumber: 60,
+        columnNumber: 5
+    }, undefined);
+};
+_s(CheckAvailability, "AdtaQ0mC6tNKiqn5ee3ddliPMzw=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch),
+        (0, _reactRouter.useNavigate)
+    ];
+});
+_c = CheckAvailability;
+exports.default = CheckAvailability;
+var _c;
+$RefreshReg$(_c, "CheckAvailability");
+
+  $parcel$ReactRefreshHelpers$244f.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","../../Utils/AppSlice":"gOLlA","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"lmmYD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _toolkit = require("@reduxjs/toolkit");

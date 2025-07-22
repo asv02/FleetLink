@@ -1,29 +1,20 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeBookedVehicle } from '../../Utils/AppSlice';
 
-/*
-Vehicle Name
-Capacity
-Tyres
-Estimated Ride Duration
-*/
 const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId }) => {
   const [message, setMessage] = useState("");
-  const [showToast, setShowToast] = useState(false);
 
-  const availVehicles = useSelector((Store) => Store.AvailableReducer);
-
-  const startTime = availVehicles.startTime;
-  const fromPincode = availVehicles.fromPincode;
-  const toPincode = availVehicles.toPincode;
+  const dispatch = useDispatch();
+  const { startTime, fromPincode, toPincode } = useSelector(
+    (store) => store.AvailableReducer
+  );
 
   const handleBook = async () => {
     try {
-      const data = await fetch("http://localhost:3000/api/bookings", {
+      const response = await fetch("http://localhost:3000/api/bookings", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           VehicleId: vehicleId,
           fromPinCode: fromPincode,
@@ -33,13 +24,18 @@ const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId }) => {
         }),
       });
 
-      const res = await data.json();
-      setMessage(res.message);
-      setShowToast(true);
+      const res = await response.json();
+      setMessage(`success:${res.message}`);
+      alert("Successfully Booked the Vehicle...")
 
-      setTimeout(() => setShowToast(false), 3000);
+      if (res.message.toLowerCase().includes("success")) {
+        dispatch(removeBookedVehicle(vehicleId));
+      }
+
     } catch (err) {
-      console.log("Something went wrong in Booking.");
+      console.log("Error during booking:", err);
+      setMessage(`Failed:Booking failed`);
+      alert("Failed to Book the Vehicle...")
     }
   };
 
@@ -49,21 +45,13 @@ const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId }) => {
         <div className="card w-96 bg-white shadow-xl border border-gray-200">
           <div className="card-body space-y-3">
             <h2 className="card-title text-xl font-semibold text-gray-800">
-               {Name}
+              {Name}
             </h2>
-
             <ul className="text-gray-600 space-y-1">
-              <li>
-                <span className="font-medium">Capacity:</span> {Capacity} Kg
-              </li>
-              <li>
-                <span className="font-medium">Tyres:</span> {Tyres}
-              </li>
-              <li>
-                <span className="font-medium">Estimated Time:</span> {estimateTime} mins
-              </li>
+              <li><span className="font-medium">Capacity:</span> {Capacity} Kg</li>
+              <li><span className="font-medium">Tyres:</span> {Tyres}</li>
+              <li><span className="font-medium">Estimated Time:</span> {estimateTime} hrs.</li>
             </ul>
-
             <div className="card-actions justify-end mt-4">
               <button className="btn btn-primary w-full" onClick={handleBook}>
                 Book Vehicle
@@ -72,14 +60,6 @@ const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId }) => {
           </div>
         </div>
       </div>
-
-      {showToast && (
-        <div className="toast toast-center toast-middle">
-          <div className={`alert ${message.toLowerCase().includes("success") ? "alert-success" : "alert-info"}`}>
-            <span>{message}</span>
-          </div>
-        </div>
-      )}
     </>
   );
 };

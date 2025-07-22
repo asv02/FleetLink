@@ -23,39 +23,35 @@ const CheckAvailability = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Checking Availability with data:", formData);
-
     const localDate = new Date(formData.DateTime);
-    const utcDate = localDate.toISOString(); // This ensures consistent backend interpretation
+    const utcDate = localDate.toISOString();
 
     try {
       const response = await fetch(
         `http://localhost:3000/api/vehicles/available?capacityRequired=${formData.Capacity}&fromPincode=${formData.FromPincode}&toPinCode=${formData.ToPincode}&startTime=${utcDate}`,
         {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
         }
       );
 
-      if (!response.ok) throw new Error("Network response was not ok");
+      if (!response.ok) throw new Error("Network error");
 
       const data = await response.json();
-
+      console.log('data->',data)
       dispatch(
         addVehicle({
           vehicle: data,
           startTime: formData.DateTime,
           toPincode: formData.ToPincode,
           fromPincode: formData.FromPincode,
+          estimatedTime:data.estimatedTime
         })
       );
 
       navigate("/bookVehicle");
-      console.log("Available Vehicles:", data.availableVehicles);
     } catch (err) {
-      console.error("Error checking availability:", err);
+      console.log("Availability check failed:", err);
       alert("Error checking availability. Please try again later.");
     }
   };
@@ -68,61 +64,46 @@ const CheckAvailability = () => {
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="form-control">
-            <label htmlFor="Capacity" className="label">
-              <span className="label-text">Capacity Required (kg)</span>
-            </label>
+            <label className="label">Capacity Required (kg)</label>
             <input
               type="number"
               name="Capacity"
-              id="Capacity"
               value={formData.Capacity}
               onChange={handleChange}
               className="input input-bordered"
-              placeholder="Enter required capacity"
               required
             />
           </div>
 
           <div className="form-control">
-            <label htmlFor="FromPincode" className="label">
-              <span className="label-text">From Pincode</span>
-            </label>
+            <label className="label">From Pincode</label>
             <input
               type="text"
               name="FromPincode"
-              id="FromPincode"
               value={formData.FromPincode}
               onChange={handleChange}
               className="input input-bordered"
-              placeholder="From area pincode"
               required
             />
           </div>
 
           <div className="form-control">
-            <label htmlFor="ToPincode" className="label">
-              <span className="label-text">To Pincode</span>
-            </label>
+            <label className="label">To Pincode</label>
             <input
               type="text"
               name="ToPincode"
-              id="ToPincode"
               value={formData.ToPincode}
               onChange={handleChange}
               className="input input-bordered"
-              placeholder="To area pincode"
               required
             />
           </div>
 
           <div className="form-control">
-            <label htmlFor="DateTime" className="label">
-              <span className="label-text">Start Date & Time</span>
-            </label>
+            <label className="label">Start Date & Time</label>
             <input
               type="datetime-local"
               name="DateTime"
-              id="DateTime"
               value={formData.DateTime}
               onChange={handleChange}
               className="input input-bordered"

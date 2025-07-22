@@ -1,18 +1,37 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
-
-const AvailableSlice = new createSlice({
+const AvailableSlice = createSlice({
   name: "AvailableVehicle",
-  initialState: {},
+  initialState: {
+    availableVehicles: [],
+    startTime: null,
+    fromPincode: null,
+    toPincode: null,
+    estimatedTime:null
+  },
   reducers: {
     addVehicle: (state, action) => {
-      return action.payload
+      return {
+        availableVehicles: action.payload.vehicle.availableVehicles,
+        startTime: action.payload.startTime,
+        fromPincode: action.payload.fromPincode,
+        toPincode: action.payload.toPincode,
+        estimatedTime:action.payload.estimatedTime
+      };
     },
-    removeVehicle: (state, action) => {
-        return null;
-    }
+    removeBookedVehicle: (state, action) => {
+      state.availableVehicles = state.availableVehicles.filter(
+        (veh) => veh._id !== action.payload
+      );
+    },
+    clearVehicles: () => ({
+      availableVehicles: [],
+      startTime: null,
+      fromPincode: null,
+      toPincode: null,
+    }),
   },
 });
 
-export const { addVehicle, removeVehicle } = AvailableSlice.actions;
+export const { addVehicle, removeBookedVehicle, clearVehicles } = AvailableSlice.actions;
 export const AvailableReducer = AvailableSlice.reducer;

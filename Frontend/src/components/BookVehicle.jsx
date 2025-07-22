@@ -1,39 +1,30 @@
-import { useEffect, useState } from "react";
-import VehicleCard from "./VehicleCard";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import VehicleCard from './VehicleCard';
 
 const BookVehicle = () => {
-  const [vehicles, setVehicles] = useState([]);
+  const { availableVehicles,estimatedTime } = useSelector((store) => store.AvailableReducer);
+  
 
-  const availVehicles = useSelector((Store) => Store.AvailableReducer);
-  console.log("Reducer available->", availVehicles);
-
-  const startTime = availVehicles.startTime
-  const fromPincode = availVehicles.fromPincode
-  const toPincode = availVehicles.toPincode 
-
-  useEffect(() => {
-    setVehicles(availVehicles?.vehicle?.availableVehicles || []);
-  }, [availVehicles]);
-
+  console.log('availableVehicles->',availableVehicles)
+  
   return (
-    <div className="min-h-screen bg-base-300 p-6">
-      <h1 className="text-3xl font-bold text-center text-white mb-6">
-        Available Vehicles
-      </h1>
-
-      <div className="flex flex-wrap justify-center gap-6">
-        {vehicles.map((veh, ind) => (
+    <div className="px-4 py-6">
+      <h2 className="text-3xl font-semibold text-center mb-6">Available Vehicles</h2>
+      {availableVehicles.length === 0 ? (
+        <p className="text-center text-gray-500">No vehicles available.</p>
+      ) : (
+        availableVehicles.map((veh) => (
           <VehicleCard
-            key={ind}
+            key={veh._id}
+            vehicleId={veh._id}
             Name={veh.Name}
             Capacity={veh.Capacity}
             Tyres={veh.Tyres}
-            estimateTime={availVehicles?.vehicle?.estimatedTime}
-            vehicleId={veh._id}
+            estimateTime={estimatedTime}
           />
-        ))}
-      </div>
+        ))
+      )}
     </div>
   );
 };
