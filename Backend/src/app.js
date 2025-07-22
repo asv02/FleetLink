@@ -2,7 +2,17 @@ const express = require('express')
 const connectDb = require('../config/database')
 const VehicleRouter = require('../routers/vehicle')
 const BookingRouter  = require('../routers/booking')
+const cors = require('cors')
+
 const app = express();
+
+app.use(cors(
+    {
+        origin: 'http://localhost:1234',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true,
+    }
+))
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())

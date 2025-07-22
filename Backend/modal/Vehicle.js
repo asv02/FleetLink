@@ -9,8 +9,10 @@ const VehicleSchema = new mongoose.Schema(
             maxLength:50,
             validate(value)
             {
-               if(!validator.isAlpha(value))
-                  {
+               if(!validator.isAlphanumeric(value))
+                  {  console.log(value);
+                     console.log(typeof value);
+                     console.log(validator.isAlpha(value));
                      throw new Error('Name should contain only letters');
                   }
             }

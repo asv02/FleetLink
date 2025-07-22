@@ -11,23 +11,13 @@ const BookingSchema = new mongoose.Schema(
         },
         startTime:
         {
-            type: String,
+            type: Date,
             required: true,
-            validate(value) {
-                if (!validator.isISO8601(value)) {
-                    throw new Error('Date is not valid');
-                }
-            }
         },
         endTime:
         {
-            type: String,
+            type: Date,
             required: true,
-            validate(value) {
-                if (!validator.isISO8601(value)) {
-                    throw new Error('Date is not valid');
-                }
-            }
         },
         fromPinCode:
         {

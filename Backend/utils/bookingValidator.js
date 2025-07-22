@@ -1,6 +1,5 @@
 const bookingValidator = ({CapacityRequired,fromPinCode,toPinCode,startTime}) => {
 
-    console.log('->',CapacityRequired)
 
     if (CapacityRequired === undefined) {
         const err = new Error('CapacityRequired is missing');

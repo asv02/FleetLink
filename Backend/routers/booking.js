@@ -1,94 +1,120 @@
-const express = require('express')
-const Booking = require('../modal/Booking')
-const Vehicle = require('../modal/Vehicle')
-const Trip = require('../modal/Trip')
-const bookingValidator = require('../utils/bookingValidator')
-const router = express.Router()
+const express = require("express");
+const Booking = require("../modal/Booking");
+const Vehicle = require("../modal/Vehicle");
+const Trip = require("../modal/Trip");
+const bookingValidator = require("../utils/bookingValidator");
+const router = express.Router();
 
+const rideDuration = (fromPinCode, toPinCode) => {
+  return Math.abs(parseInt(toPinCode) - parseInt(fromPinCode)) % 24;
+};
 
-const rideDuration = (fromPinCode, toPinCode) => {   // this is in hours
-    return (Math.abs(parseInt(toPinCode) - parseInt(fromPinCode))) % 24;
-}
+router.get("/api/vehicles/available", async (req, res) => {
+  try {
+    const CapacityRequired = parseInt(req.query.capacityRequired);
+    const fromPinCode = req.query.fromPincode;
+    const toPinCode = req.query.toPinCode;
+    const startTime = req.query.startTime;
 
-router.get('/api/vehicles/available', async (req, res) => {
-    try {
-
-        /* capacityRequired: Number
-           fromPincode: String
-           toPincode: String
-           startTime
-        */
-        console.log('query->', req.query)
-        const CapacityRequired = parseInt(req.query.capacityRequired)
-        const fromPinCode = (req.query.fromPincode)
-        const toPinCode = req.query.toPinCode
-        const startTime = req.query.startTime
-
-        bookingValidator({ CapacityRequired, fromPinCode, toPinCode, startTime })
-        const RideDuration = rideDuration(fromPinCode, toPinCode)
-        const startDate = new Date(startTime);
-        const endDate = new Date(startDate.getTime() + RideDuration * 60 * 60 * 1000).toISOString();
-
-        const availableVehicles = await Vehicle.find({ Capacity: { $gte: CapacityRequired } })
-
-        //Condition to exactly overlap.
-        const BookedVehicle = await Booking.find({
-            startTime: { $lt: endDate },
-            endTime: { $gt: startDate }
-        }).distinct("VehicleId");
-
-        console.log("availableVehicales->", availableVehicles);
-        console.log("BookedVehicle->", BookedVehicle);
-
-        const delieveryVehicles = availableVehicles.filter((veh) => {
-            return !BookedVehicle.includes(veh._id.toString());
-        })
-        res.status(200).json({ message: "Successfully fetched Available Vehicle", availableVehicles: delieveryVehicles, estimatedTime: RideDuration })
+    if (!startTime || isNaN(new Date(startTime).getTime())) {
+      return res.status(400).json({ message: "Invalid startTime format" });
     }
-    catch (err) {
-        console.log(`Error in booking vehicle....${err.message}`)
+
+    bookingValidator({ CapacityRequired, fromPinCode, toPinCode, startTime });
+
+    const RideDuration = rideDuration(fromPinCode, toPinCode);
+    const startDate = new Date(startTime);
+    const endDate = new Date(
+      startDate.getTime() + RideDuration * 60 * 60 * 1000
+    );
+
+    const availableVehicles = await Vehicle.find({
+      Capacity: { $gte: CapacityRequired },
+    });
+    if (availableVehicles.length === 0) {
+      return res.status(200).json({ message: "No Vehicles Available" });
     }
-})
 
-router.post('/api/bookings', async (req, res) => {
-    try {
-        const { VehicleId, fromPinCode, toPinCode, startTime, customerId } = req.body;
+    const BookedVehicleIds = await Booking.find({
+      startTime: { $lt: endDate },
+      endTime: { $gt: startDate },
+    }).distinct("VehicleId");
 
-        const tempVeh = Vehicle.findOne({ _id: VehicleId })
-        if (!tempVeh) {
-            res.status(404).json({ message: "Not Found vehicle ID" })
-        }
+    const bookedIdSet = new Set(BookedVehicleIds.map((id) => id.toString()));
 
-        const estimateTime = rideDuration(fromPinCode, toPinCode)
-        const bookingEndTime = new Date(new Date(startTime).getTime() + estimateTime * 60 * 60 * 1000).toISOString();
+    const deliveryVehicles = availableVehicles.filter(
+      (veh) => !bookedIdSet.has(veh._id.toString())
+    );
+    console.log("availableVehicles->", availableVehicles);
+    console.log("BookedVehicle->", BookedVehicleIds);
+    console.log("deliveryVehicles->", deliveryVehicles);
 
-        const ifBooked = await Booking.find({
-            $and: [{ VehicleId: VehicleId }, { startTime: { $lt: bookingEndTime } },
-            { endTime: { $gt: startTime } }]
-        })
+    res.status(200).json({
+      message: "Successfully fetched Available Vehicle",
+      availableVehicles: deliveryVehicles,
+      estimatedTime: RideDuration,
+    });
+  } catch (err) {
+    console.error(`Error in fetching available vehicle: ${err.message}`);
+    res
+      .status(500)
+      .json({ message: "Server error while fetching availability." });
+  }
+});
 
-        console.log('ifBooked->',ifBooked)
+router.post("/api/bookings", async (req, res) => {
+  try {
+    const { VehicleId, fromPinCode, toPinCode, startTime, customerId } =
+      req.body;
 
-        if (ifBooked.length>0) {
-            return res.status(409).json({ message: "Vehicle with given Id is already Booked" });
-        }
-
-        const NewBooking = new Booking(
-            {
-                VehicleId, startTime, endTime: bookingEndTime, fromPinCode, toPinCode
-            })
-        const saveBooking = await NewBooking.save()
-
-        const newTrip = new Trip(
-            {
-                customerId, bookingId: saveBooking._id
-            })
-        const saveTrip = await newTrip.save()
-        res.status(201).json({ message: "Vehicle Booked successfully...", vehicleId: VehicleId, trip: saveTrip })
+    const tempVeh = await Vehicle.findOne({ _id: VehicleId });
+    if (!tempVeh) {
+      return res.status(404).json({ message: "Vehicle ID not found" });
     }
-    catch (err) {
-        console.log(`Something went wrong during booking, ${err.message}`)
+
+    const estimateTime = rideDuration(fromPinCode, toPinCode);
+    const bookingEndTime = new Date(
+      new Date(startTime).getTime() + estimateTime * 60 * 60 * 1000
+    );
+
+    const ifBooked = await Booking.find({
+      VehicleId: VehicleId,
+      startTime: { $lt: bookingEndTime },
+      endTime: { $gt: new Date(startTime) },
+    });
+
+    if (ifBooked.length > 0) {
+      return res
+        .status(409)
+        .json({ message: "Vehicle is already booked for the given time" });
     }
-})
+
+    const NewBooking = new Booking({
+      VehicleId,
+      startTime,
+      endTime: bookingEndTime,
+      fromPinCode,
+      toPinCode,
+    });
+
+    const saveBooking = await NewBooking.save();
+
+    const newTrip = new Trip({
+      customerId,
+      bookingId: saveBooking._id,
+    });
+
+    const saveTrip = await newTrip.save();
+
+    res.status(201).json({
+      message: "Vehicle booked successfully",
+      vehicleId: VehicleId,
+      trip: saveTrip,
+    });
+  } catch (err) {
+    console.error(`Booking error: ${err.message}`);
+    res.status(500).json({ message: "Error while booking vehicle" });
+  }
+});
 
 module.exports = router;
