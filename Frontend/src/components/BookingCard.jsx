@@ -12,7 +12,7 @@ const VehicleCard = ({ Name, Capacity, Tyres, estimateTime, vehicleId }) => {
 
   const handleBook = async () => {
     try {
-      const response = await fetch("http://backend:3000/api/bookings", {
+      const response = await fetch("http://localhost:3000/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

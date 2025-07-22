@@ -28,7 +28,7 @@ const CheckAvailability = () => {
 
     try {
       const response = await fetch(
-        `http://backend:3000/api/vehicles/available?capacityRequired=${formData.Capacity}&fromPincode=${formData.FromPincode}&toPinCode=${formData.ToPincode}&startTime=${utcDate}`,
+        `http://localhost:3000/api/vehicles/available?capacityRequired=${formData.Capacity}&fromPincode=${formData.FromPincode}&toPinCode=${formData.ToPincode}&startTime=${utcDate}`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
